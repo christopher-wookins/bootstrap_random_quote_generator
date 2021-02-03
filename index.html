@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <meta charset="UTF-8"> 
+ <head>
+ 	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<title> Yesn't </title>
+	<script>
+		const QUOTEBANK = [ 
+		{
+			quote: "Whoms't",
+			author: "That one dude from Antique's Roadshow"
+		},
+		{
+			quote: "Sometimes I sneeze when I cry",
+			author: "Mr. Krab's on a Sunday"
+		},
+		{
+			quote: "Had to leave... FRACK",
+			author: "The people's champion"
+		},
+		{
+			quote: "Our house",
+			author: "Bugs Bunny"
+		},
+		{
+			quote: "Screech",
+			author: "A bat"
+		},
+		{
+			quote: "To yeet or not to yeet",
+			author: "Socrates",
+		},
+				{
+			quote: "YOOOOOOOOOOOOOOOOOOO",
+			author: "Party Rock",
+		},
+				{
+			quote: "Wazzzuppppp?!",
+			author: "Shrek",
+		},
+				{
+			quote: "Ouch",
+			author: "Robery Frost",
+		},
+
+	]	
+	
+	
+		window.onload = init;
+		function init () {
+			generateQuote()
+		} 
+
+		function generateQuote () {
+			let quoteSize = QUOTEBANK.length;
+			let randomIndex = Math.floor(Math.random() * quoteSize);
+			let randomQuoteData = QUOTEBANK[randomIndex];
+			
+
+			let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=";
+
+			let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+			// get quote for tweet
+			twitterLink += quoteInApiFormat
+
+			let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20");
+			// get author for tweet
+			twitterLink += " - " + authorInApiFormat
+
+			
+			
+
+			document.getElementById("tweet-quote").href = twitterLink;
+			document.getElementById("text").innerText = randomQuoteData.quote;
+			document.getElementById("author").innerText = randomQuoteData.author;
+		}
+
+	</script>
+
+ </head>
+
+<body>	
+
+	
+
+	<div class="container">
+		<div class="row py-5">
+			<div class="col-md-8 offset-md-2">
+
+		<wrapper id="quote-box">
+			<div class="card">
+ 		 <div class="card-header">
+   			 Yesn't
+  			</div>
+		  <div class="card-body">
+		    
+		    <h5 class="card-title"><div id="text"> </div></h5>
+		    
+		    <p class="card-text"><div id="author"> </div></p>
+		    
+		    <button class="btn btn-success btn-block" id="new-quote" onClick = "generateQuote();"> New Quote </button>
+
+			<a class="btn btn-primary btn-block" id="tweet-quote" href="#" target="_blank"> Tweet Quote </a>	
+		  </div>
+		</div>
+
+
+			 </wrapper>
+			</div>
+			</div>
+			</div> 
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"> </script>		 
+
+	</body>
+
+
+
+</html>
